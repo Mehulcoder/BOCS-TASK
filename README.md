@@ -89,8 +89,10 @@ Install them and then move to the next step.
 * Click on send now. If everything goes fine you'll get ```Status: 200``` in the POSTMAN
 * You can see the output in both:
 	* Terminal and
+	
 	![enter image description here](https://i.imgur.com/Vhh1zc6.png)
 	*  POSTMAN
+	
 ![enter image description here](https://i.imgur.com/6DTxrbz.png)
 
 
