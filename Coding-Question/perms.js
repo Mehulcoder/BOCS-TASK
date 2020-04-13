@@ -41,6 +41,6 @@ let perms = (string) => {
     return result;
 }
 
-var input = "aabc"
+var input = "aabc";
 
 console.log(perms(input), perms(input).length);
