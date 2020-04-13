@@ -12,6 +12,20 @@
     "express": "^4.16.4",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
-    "morgan": "~1.9.1"
-  }
+    "morgan": "~1.9.1",
+    "request": "^2.88.2"
+  },
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mehulcoder/BOCS-TASK.git"
+  },
+  "author": "Mehul Chaturvedi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mehulcoder/BOCS-TASK/issues"
+  },
+  "homepage": "https://github.com/Mehulcoder/BOCS-TASK#readme",
+  "description": ""
 }
