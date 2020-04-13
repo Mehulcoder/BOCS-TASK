@@ -6,18 +6,13 @@ var bodyParser = require("body-parser");
 var app = express();
 var port = 3000 || process.env.PORT;
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'ejs');
-
+//Set up structure for frontend in future updates
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-var apikey =  '';
-
-
-// getweather(`https://api.openweathermap.org/data/2.5/weather?lat=22&lon=22&appid=${apikey}`)
+//Setting up API key (Must be private actually)
+var apikey =  'f2d630edb48d712aaccab708ba5e2351';
 
 app.post('/', (req, res) => {
   //Getting Coordinates
@@ -31,21 +26,27 @@ app.post('/', (req, res) => {
   request({url, json:true}, function (err, response, body) {
     
     if(err){
-      console.log('error:', err);
+      res.send(err);
+      return console.log('Error:', err);
     } else {
-      var main = body.main;
-      var temp = main.temp;
-      var pressure = main.pressure;
-      var humidity = main.humidity;
-      
-      var message = `The temprature is ${temp} degree Celcius, pressure is ${pressure} Pa, and humidity is ${humidity} g/cc. \nWeather:${body.weather[0].description}`
+      // Check if Error due to input
+      if (body.cod != 200) {
+        res.send("Error: "+body.message);
+        return console.log("Error: ",body.message);
+      }else{
 
-      console.log(message);
-      res.send(message)
+        var main = body.main;
+        var temp = main.temp;
+        var pressure = main.pressure;
+        var humidity = main.humidity;
+        
+        var message = `The temprature is ${temp} degree Celcius, pressure is ${pressure} Pa, and humidity is ${humidity} g/cc. \nWeather:${body.weather[0].description}`
+
+        console.log(message);
+        res.send(message)
+      }
     }
   });
-
-
 });
 
 
